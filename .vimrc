@@ -5,21 +5,19 @@ set cursorline
 set noexpandtab
 set backspace=indent,eol,start
 set ignorecase smartcase
-set tabstop=4        
-set shiftwidth=4    
 
 set expandtab           " enter spaces when tab is pressed
-set textwidth=120       " break lines when line length increases
-set tabstop=4           " use 4 spaces to represent tab
-set softtabstop=4
-set shiftwidth=4        " number of spaces to use for auto indent
-set autoindent          " copy indent from current line when starting a new line"
+set textwidth=80       " break lines when line length increases
+set tabstop=2           " use 4 spaces to represent tab
+set softtabstop=2
+set shiftwidth=2        " number of spaces to use for auto indent
+"set autoindent          " copy indent from current line when starting a new line"
 set cindent
 set cinoptions=g-1
+set cino=N-s
 
 set encoding=utf-8
 set guifont=Droid\ Sans\ Mono\ 11
-set iskeyword-=_
 "set completeopt=longest,menuone
 let loaded_matchparen = 1
 set t_Co=256 
