@@ -8,13 +8,14 @@ set ignorecase smartcase
 
 set expandtab           " enter spaces when tab is pressed
 set textwidth=80       " break lines when line length increases
+set cc=80
 set tabstop=2           " use 4 spaces to represent tab
 set softtabstop=2
 set shiftwidth=2        " number of spaces to use for auto indent
-"set autoindent          " copy indent from current line when starting a new line"
+set autoindent          " copy indent from current line when starting a new line"
 set cindent
-set cinoptions=g-1
-set cino=N-s
+set cinoptions=g0,N-s,(0,W1,W4
+"set cino=N-s
 
 set encoding=utf-8
 set guifont=Droid\ Sans\ Mono\ 11
@@ -40,7 +41,8 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'fugalh/desert.vim'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
-Plugin 'Valloric/YouCompleteMe'
+"Plugin 'Valloric/YouCompleteMe'
+Plugin 'oblitum/YouCompleteMe'
 Plugin 'rizzatti/dash.vim'
 Plugin 'tikhomirov/vim-glsl'
 Plugin 'Auto-Pairs'
@@ -48,13 +50,17 @@ Plugin 'vim-scripts/a.vim'
 Plugin 'vim-scripts/CSApprox'
 Plugin 'vim-scripts/taglist.vim'
 Plugin 'vim-scripts/DoxygenToolkit.vim'
+Plugin 'Yggdroot/indentLine'
+Plugin 'elzr/vim-json'
 
 call vundle#end()            " required
 filetype plugin indent on
 
+let g:vim_json_syntax_conceal = 0
 
 "colorscheme molokai
 colorscheme desert
+set background=dark
 "colorscheme lucius
 "LuciusWhite
 "let g:molokai_original = 0
