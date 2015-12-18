@@ -82,4 +82,23 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-[[ -s ~/.autojump/etc/profile.d/autojump.sh  ]] && . ~/.autojump/etc/profile.d/autojump.sh
+
+if [[ "$OSTYPE" == "linux-gnu"  ]]; then
+  [[ -s ~/.autojump/etc/profile.d/autojump.sh  ]] && . ~/.autojump/etc/profile.d/autojump.sh
+elif [[ "$OSTYPE" == "darwin"*  ]]; then
+  # Mac OSX
+  [[ -s `brew --prefix`/etc/autojump.sh  ]] && . `brew --prefix`/etc/autojump.sh
+elif [[ "$OSTYPE" == "cygwin"  ]]; then
+  # POSIX compatibility layer and Linux environment
+  emulation for Windows
+elif [[ "$OSTYPE" == "msys"  ]]; then
+  # Lightweight shell and GNU utilities
+  compiled for Windows (part of MinGW)
+elif [[ "$OSTYPE" == "win32"  ]]; then
+  # I'm not sure this can happen.
+elif [[ "$OSTYPE" == "freebsd"*  ]];
+then
+  # ...
+else
+  # Unknown.
+fi
