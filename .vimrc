@@ -14,7 +14,7 @@ set softtabstop=2
 set shiftwidth=2        " number of spaces to use for auto indent
 set autoindent          " copy indent from current line when starting a new line"
 set cindent
-set cinoptions=g0,N-s,(0,W1,W4
+set cinoptions=j1,l1,g0,N-s,(0,W1,W4
 "set cino=N-s
 
 set encoding=utf-8
@@ -78,10 +78,13 @@ let g:ycm_warning_symbol = '⚠'
 let g:ycm_global_ycm_extra_conf = '/Users/jerett/.ycm_extra_conf.py'
 "
 let g:ycm_key_invoke_completion = '<C-Space>'
+let g:ycm_always_populate_location_list = 1
+let g:ycm_open_loclist_on_ycm_diags = 1
 nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 """"""""nerdtree"""
 let NERDTreeWinPos="left"
+map <C-n> :NERDTreeToggle<CR>
 
 
 """""""""""function"""""""""""""""""
