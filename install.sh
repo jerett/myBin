@@ -1,2 +1,4 @@
 #!/bin/bash
-ln -s $HOME/myConfig/.vimrc $HOME/myConfig/.zshrc $HOME
+BASEDIR=$(dirname "$0")
+echo "$BASEDIR"
+ln -s $BASEDIR/.vimrc $BASEDIR/.zshrc $HOME
