@@ -83,6 +83,8 @@ let g:ycm_warning_symbol = '⚠'
 let g:ycm_global_ycm_extra_conf = '/Users/jerett/.ycm_extra_conf.py'
 "
 let g:ycm_key_invoke_completion = '<C-Space>'
+let g:ycm_always_populate_location_list = 1
+let g:ycm_open_loclist_on_ycm_diags = 1
 nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 """"""""nerdtree"""
