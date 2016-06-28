@@ -1,5 +1,6 @@
 set nocompatible              " be iMproved, required
 set nu
+set relativenumber
 set hlsearch
 set cursorline
 set noexpandtab
@@ -18,8 +19,7 @@ set cinoptions=j1,l1,g0,N-s,(0,W1,W4
 "set cino=N-s
 
 set encoding=utf-8
-set guifont=Droid\ Sans\ Mono\ 11
-"set completeopt=longest,menuone
+set guifont=Monaco:h14
 let loaded_matchparen = 1
 set t_Co=256 
 syntax on 
@@ -30,6 +30,9 @@ map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
+noremap <expr> j (v:count == 0 ? 'gj' : 'j')
+noremap <expr> k (v:count == 0 ? 'gk' : 'k')
+"noremap k (v:count == 0 ? 'gk' : 'k')
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 
@@ -50,6 +53,8 @@ Plugin 'vim-scripts/taglist.vim'
 Plugin 'vim-scripts/DoxygenToolkit.vim'
 Plugin 'Yggdroot/indentLine'
 Plugin 'elzr/vim-json'
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
 
 call vundle#end()            " required
 filetype plugin indent on
