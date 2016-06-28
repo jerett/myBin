@@ -1,5 +1,6 @@
 set nocompatible              " be iMproved, required
 set nu
+set relativenumber
 set hlsearch
 set cursorline
 set noexpandtab
@@ -14,12 +15,11 @@ set softtabstop=2
 set shiftwidth=2        " number of spaces to use for auto indent
 set autoindent          " copy indent from current line when starting a new line"
 set cindent
-set cinoptions=g0,N-s,(0,W1,W4
+set cinoptions=j1,l1,g0,N-s,(0,W1,W4
 "set cino=N-s
 
 set encoding=utf-8
-set guifont=Droid\ Sans\ Mono\ 11
-"set completeopt=longest,menuone
+set guifont=Monaco:h14
 let loaded_matchparen = 1
 set t_Co=256 
 syntax on 
@@ -30,6 +30,9 @@ map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
+noremap <expr> j (v:count == 0 ? 'gj' : 'j')
+noremap <expr> k (v:count == 0 ? 'gk' : 'k')
+"noremap k (v:count == 0 ? 'gk' : 'k')
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 
@@ -52,6 +55,8 @@ Plugin 'vim-scripts/taglist.vim'
 Plugin 'vim-scripts/DoxygenToolkit.vim'
 Plugin 'Yggdroot/indentLine'
 Plugin 'elzr/vim-json'
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
 
 call vundle#end()            " required
 filetype plugin indent on
@@ -82,50 +87,9 @@ nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 """"""""nerdtree"""
 let NERDTreeWinPos="left"
+nnoremap <silent> <C-n> :NERDTreeToggle<CR>
 
+""""""""vim-markdown"""
+let g:vim_markdown_folding_disabled = 1
 
 """""""""""function"""""""""""""""""
-"进行版权声明的设置
-"添加或更新头
-map <F4> :call TitleDet()<cr>
-function AddTitle()
-    call append(0,"/*=============================================================================")
-    call append(1,"#")
-    call append(2,"# Author: jerett - wj.jiang@outlook.com")
-    call append(3,"#")
-    call append(4,"# Last modified: ".strftime("%Y-%m-%d %H:%M"))
-    call append(5,"#")
-    call append(6,"# Filename: ".expand("%:t"))
-    call append(7,"#")
-    call append(8,"# Description: ")
-    call append(9,"#")
-    call append(10,"=============================================================================*/")
-    echohl WarningMsg | echo "Successful in adding the copyright." | echohl None
-endf
-"更新最近修改时间和文件名
-function UpdateTitle()
-    normal m'
-    execute '/# *Last modified:/s@:.*$@\=strftime(":\t%Y-%m-%d %H:%M")@'
-    normal ''
-    normal mk
-    execute '/# *Filename:/s@:.*$@\=":\t\t".expand("%:t")@'
-    execute "noh"
-    normal 'k
-    echohl WarningMsg | echo "Successful in updating the copy right." | echohl None
-endfunction
-"判断前10行代码里面，是否有Last modified这个单词，
-"如果没有的话，代表没有添加过作者信息，需要新添加；
-"如果有的话，那么只需要更新即可
-function TitleDet()
-    let n=1
-    "默认为添加
-    while n < 8
-        let line = getline(n)
-        if line =~ '^\#\s*\S*Last\smodified:\S*.*$'
-            call UpdateTitle()
-            return
-        endif
-        let n = n + 1
-    endwhile
-    call AddTitle()
-endfunction

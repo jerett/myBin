@@ -83,6 +83,7 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+alias bfg="java -jar ~/myBin/bfg-1.12.12.jar"
 if [[ "$OSTYPE" == "linux-gnu"  ]]; then
   [[ -s ~/.autojump/etc/profile.d/autojump.sh  ]] && . ~/.autojump/etc/profile.d/autojump.sh
 elif [[ "$OSTYPE" == "darwin"*  ]]; then
