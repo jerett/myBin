@@ -1,4 +1,4 @@
-#!/bin/bash
-BASEDIR=$(dirname "$0")
-echo "$BASEDIR"
+#!/bin/sh
+BASEDIR=$(cd `dirname $0`; pwd)
+echo $BASEDIR
 ln -s $BASEDIR/.vimrc $BASEDIR/.zshrc $HOME
