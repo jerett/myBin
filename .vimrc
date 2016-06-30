@@ -1,5 +1,6 @@
 set nocompatible              " be iMproved, required
 set nu
+set clipboard=unnamed
 set relativenumber
 set hlsearch
 set cursorline
@@ -47,6 +48,7 @@ Plugin 'scrooloose/nerdtree'
 "Plugin 'Valloric/YouCompleteMe'
 Plugin 'tikhomirov/vim-glsl'
 Plugin 'Auto-Pairs'
+Plugin 'tpope/vim-surround'
 Plugin 'vim-scripts/a.vim'
 Plugin 'vim-scripts/CSApprox'
 Plugin 'vim-scripts/taglist.vim'
